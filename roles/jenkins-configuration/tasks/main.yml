@@ -1,0 +1,7 @@
+---
+- name: Using jenkins-cli to create job
+  shell: java -jar {{ role_path }}/files/jenkins-cli.jar -s {{ url_jenkins }} -auth admin:admin create-job spring-petclinic < {{ role_path }}/files/spring-petclinic-job.xml
+
+- name: Running a build
+  shell: java -jar {{ role_path }}/files/jenkins-cli.jar -s {{ url_jenkins }} -auth admin:admin build spring-petclinic
+  
