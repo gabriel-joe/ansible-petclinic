@@ -1,29 +1,25 @@
-Como Rodar? 
-==========
+### Run for debian:
 
-https://docs.mv.com.br/display/infraestrutura/Chef-Server+Ansible+Playbook
+- ansible-playbook playbook-debian.yml 
+
+### Run for rhel:
+
+- ansible-playbook playbook-redhat.yml
+
+### Jenkins configuration
+
+- ansible-playbook playbook-jenkins-configuration --extra-vars="url_jenkins=${URL}"
+
+URL = Your jenkins url
+
+### Playbooks will install
+
+- docker
+- run jenkins container
+- User and password to access jenkins - admin/admin
 
 
-### Com private_key:
 
-- ansible-playbook -b playbook.yml 
-
-### Com senha:
-
-- ansible-playbook -b -K playbook.yml
-
-### Passando agent version 
-
-- ansible-playbook -b -K playbook.yml --extra-vars "gcm_version=$version" 
-
-Se não passar a gcm_version, ele baixa automaticamente a versão 1.5.3.
-
-
-### NEW! 
-
- Instalação de novos agentes, seguir documentação: 
-
- https://docs.mv.com.br/display/infraestrutura/Ansible+%7C+Criar+Executores+Portal
 
 
 
