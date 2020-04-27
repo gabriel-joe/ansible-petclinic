@@ -4,21 +4,26 @@
 
 ### Run for rhel:
 
-- ansible-playbook playbook-redhat.yml
+- ansible-playbook playbook-rhel.yml
 
 ### Jenkins configuration
 
 - ansible-playbook playbook-jenkins-configuration --extra-vars="url_jenkins=${URL}"
+  - URL = Your IP and PORT that jenkins is running
 
 URL = Your jenkins url
 
-### Playbooks will install
+### Playbook (debian/rhel) will install/configurate
 
-- docker
-- run jenkins container
+- Docker
+- Build jenkins container with initial configuration
+- Create dir to bind volume (/var/jenkins_home) in /home/jenkins_home
+- Run Jenkins container
 - User and password to access jenkins - admin/admin
 
+### Playbook (Jenkins configuration) will configurate
 
+- Petclinic's Job to be ready to building
 
 
 
