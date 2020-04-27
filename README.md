@@ -23,7 +23,7 @@ URL = Your jenkins url
 
 ### Playbook (Jenkins configuration) will configurate
 
-- Petclinic's Job to be ready to building
+- Job setup to be ready to build
 
 
 
