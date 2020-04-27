@@ -11,7 +11,6 @@
 - ansible-playbook playbook-jenkins-configuration --extra-vars="url_jenkins=${URL}"
   - URL = Your IP and PORT that jenkins is running
 
-URL = Your jenkins url
 
 ### Playbook (debian/rhel) will install/configurate
 
