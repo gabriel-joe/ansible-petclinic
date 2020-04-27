@@ -1,11 +1,23 @@
----
-- name: Build image using cache source
-  docker_image:
-    name: jenkins:latest
-    build:
-      path: "{{ role_path }}/files"
-      pull: no
-    source: build
-- name: Docker run image
-  shell: docker run --rm -p 8080:8080 -p 5000:5000 -u root -v /var/run/docker.sock:/var/run/docker.sock --name jenkins -d jenkins  
+--- 
+- name: "[DIR] Creating volume dir"
+  file: 
+    path: /home/jenkins_home
+    state: directory
+- name: "[Docker] Build image from Dockerfile"
+  docker_image: 
+    name: "jenkins:latest"
+    path: "{{ role_path }}/files"
+    state: present
+    tag: latest
+- name: "[Docker] Running container"
+  docker_container: 
+    image: "jenkins:latest"
+    name: jenkins
+    published_ports: 
+      - "8080:8080"
+      - "5000:5000"
+    user: root
+    volumes: 
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/home/jenkins_home:/var/jenkins_home/"
   

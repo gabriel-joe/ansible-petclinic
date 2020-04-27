@@ -23,6 +23,7 @@
       - gnupg2
       - curl
       - python-backports.ssl-match-hostname
+      - python-pip
       - default-jdk
   - name: Add Apt signing key from official docker repo
     apt_key:
